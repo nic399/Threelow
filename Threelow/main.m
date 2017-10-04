@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Dice.h"
+#import "general_defines.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {

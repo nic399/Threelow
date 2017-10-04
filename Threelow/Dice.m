@@ -10,4 +10,8 @@
 
 @implementation Dice
 
+-(void)randomize {
+    self.value = arc4random_uniform(6)+1;
+}
+
 @end
