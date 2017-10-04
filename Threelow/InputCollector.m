@@ -25,11 +25,11 @@
         
         char inputChar[511];
         fgets(inputChar, 511, stdin);
-        self.userInput = [[NSString stringWithCString:inputChar encoding:NSUTF8StringEncoding] stringByTrimmingCharactersInSet:[ NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        self.userInput =    [[NSString stringWithCString:inputChar encoding:NSUTF8StringEncoding] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
         self.newest = (self.newest+1)%3;
-        [self.history insertObject:self.userInput atIndex:self.newest];
-        
+        [self.history replaceObjectAtIndex:self.newest withObject:self.userInput];
+        //[self.history insertObject:self.userInput atIndex:self.newest];
         return self.userInput;
     }
     

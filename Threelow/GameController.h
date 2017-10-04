@@ -1,5 +1,5 @@
 //
-//  Dice.h
+//  GameController.h
 //  Threelow
 //
 //  Created by Nicholas Fung on 2017-10-04.
@@ -7,14 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "general_defines.h"
 
-@interface Dice : NSObject
-
-@property int value;
-
--(instancetype)init;
--(void)randomize;
--(void)printDieFace;
+@interface GameController : NSObject
 
 @end

@@ -10,8 +10,57 @@
 
 @implementation Dice
 
+-(instancetype)init {
+    self = [super init];
+    if (self) {
+        [self randomize];
+    }
+    return self;
+}
+
 -(void)randomize {
     self.value = arc4random_uniform(6)+1;
+}
+
+-(void)printDieFace {
+    NSString* dieFace;
+    
+    switch (self.value) {
+        case 1: {
+            dieFace = @"⚀";
+            break;
+        }
+            
+        case 2: {
+            dieFace = @"⚁";
+            break;
+        }
+            
+        case 3: {
+            dieFace = @"⚂";
+            break;
+        }
+            
+        case 4: {
+            dieFace = @"⚃";
+            break;
+        }
+            
+        case 5: {
+            dieFace = @"⚄";
+            break;
+        }
+            
+        case 6: {
+            dieFace = @"⚅";
+            break;
+        }
+            
+        default:
+            break;
+    }
+    
+    NSLog(@"%@", dieFace);
 }
 
 @end
