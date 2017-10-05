@@ -20,6 +20,7 @@
         Dice* d5 = [[Dice alloc] init];
         self.score = 0;
         self.rollsRemaining = 5;
+        self.highScore = 31;
         self.diceDict = [[NSMutableDictionary alloc] initWithDictionary:@{@"1":d1, @"2":d2, @"3":d3, @"4":d4, @"5":d5}];
     }
     return self;
@@ -90,11 +91,35 @@
         }
         else {
             self.score += thisDie.value;
-        }        [self releaseDie:i];
+        }
+        [self releaseDie:i];
     }
     [self rollDice];
     NSLog(@"Game finished! Your final score: %i", self.score);
+    if (self.score < self.highScore) {
+        NSLog(@"Previous top score was %i. Congratulations, you have the new top score!", self.highScore);
+        self.highScore = self.score;
+    }
+    else {
+        NSLog(@"Current top score is %i: can you beat it?", self.highScore);
+    }
+}
 
+-(void)cheat {
+    self.score = 0;
+    self.rollsRemaining = 5;
+    for (int i = 0; i < 6; i++) {
+        [self releaseDie:i];
+    }
+    [self rollDice];
+    NSLog(@"Game finished! Your final score: %i", self.score);
+    if (self.score < self.highScore) {
+        NSLog(@"Previous top score was %i. Congratulations, you have the new top score!", self.highScore);
+        self.highScore = self.score;
+    }
+    else {
+        NSLog(@"Current top score is %i: can you beat it?", self.highScore);
+    }
 }
 
 @end

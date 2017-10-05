@@ -14,11 +14,14 @@
 @property NSMutableDictionary *diceDict;
 @property int score;
 @property int rollsRemaining;
+@property int highScore;
 
 -(void)print;
 -(void)holdDie:(int)index;
 -(void)rollDice;
 -(void)releaseDie:(int)index;
+-(void)endRound;
+-(void)cheat;
 
 
 @end

@@ -18,7 +18,8 @@ int main(int argc, const char * argv[]) {
                                    @"hold":@"2",
                                    @"unhold":@"3",
                                    @"reset":@"4",
-                                   @"newgame":@"5"
+                                   @"newgame":@"5",
+                                   @"imacheater":@"6"
                                    };
         
         InputCollector* myInputCollector = [[InputCollector alloc] init];
@@ -29,17 +30,17 @@ int main(int argc, const char * argv[]) {
         BOOL gameOn = true;
         GameController *myGameController = [[GameController alloc] init];
         
+        NSLog(@"Welcome to Threelow! The Rules are simple:");
+        NSLog(@"You have 5 dice.");
+        NSLog(@"Your score is determined by the sum of their face values, except for 3s which are worth zero.");
+        NSLog(@"You are only allowed to roll a maximum of 5 times per game/round.");
+        NSLog(@"You may choose to hold certain dice: those dice will not be rolled.");
+        NSLog(@"Aim to get the lowest score possible!");
         while (gameOn) {
             [myGameController print];
             userInput = [myInputCollector inputForPrompt:menuPrompt];
             NSArray *arrayWithInputWords = [userInput componentsSeparatedByCharactersInSet:nonalphanumericSet];
             userCommand = [[commands valueForKey:[arrayWithInputWords firstObject]] intValue];
-            NSLog(@"Input: %@\nCommand #: %i - %@", userInput, userCommand, [arrayWithInputWords firstObject]);
-            
-            
-            
-            
-            
             
             switch (userCommand) {
                     
@@ -74,17 +75,17 @@ int main(int argc, const char * argv[]) {
                     }
                     break;
                 }
-                    /*
-                     case 5: { // start a new game
-                     <#statements#>
-                     break;
-                     }
-                     */
-                    //                case <#constant#>: {
-                    //                    <#statements#>
-                    //                    break;
-                    //                }
                     
+                case 5: { // start a new game
+                    [myGameController endRound];
+                    break;
+                }
+                    
+                case 6: { // cheating is bad
+                    [myGameController cheat];
+                    break;
+                }
+
                 default:
                     break;
             }
