@@ -41,49 +41,54 @@ int main(int argc, const char * argv[]) {
             
             
             
-             switch (userCommand) {
-             
-             case 1: { //roll dice
-                 NSLog(@"Rolling...\n\n\n");
-                 [myGameController rollDice];
-             break;
-             }
-             /*
-             case 2: { // hold dice
-             <#statements#>
-             break;
-             }
-             
-             case 3: { // unhold dice
-             <#statements#>
-             break;
-             }
-             
-             case 4: { // reset all held dice
-             <#statements#>
-             break;
-             }
-             
-             case 5: { // start a new game
-             <#statements#>
-             break;
-             }
-             */
-             //                case <#constant#>: {
-             //                    <#statements#>
-             //                    break;
-             //                }
-             
-             default:
-             break;
-             }
-             
-             
+            switch (userCommand) {
+                    
+                case 1: { //roll dice
+                    [myGameController rollDice];
+                    break;
+                }
+                    
+                case 2: { // hold dice
+                    if ([arrayWithInputWords count] < 2) {
+                        NSLog(@"Error: No die selected to hold");
+                        break;
+                    }
+                    userInput = [commands valueForKey:arrayWithInputWords[1]];
+                    [myGameController holdDie:[userInput intValue]];
+                    break;
+                }
+                    
+                case 3: { // unhold dice
+                    ;
+                    break;
+                }
+                    /*
+                     case 4: { // reset all held dice
+                     
+                     break;
+                     }
+                     
+                     case 5: { // start a new game
+                     <#statements#>
+                     break;
+                     }
+                     */
+                    //                case <#constant#>: {
+                    //                    <#statements#>
+                    //                    break;
+                    //                }
+                    
+                default:
+                    break;
+            }
             
             
             
             
             
+            
+           
+            [myGameController print];
             
         }
         

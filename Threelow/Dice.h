@@ -12,9 +12,11 @@
 @interface Dice : NSObject
 
 @property int value;
+@property BOOL isHeld;
 
 -(instancetype)init;
 -(void)randomize;
 -(NSString*)getDieFace;
+-(void)toggleHold;
 
 @end

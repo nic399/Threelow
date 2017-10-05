@@ -14,6 +14,7 @@
     self = [super init];
     if (self) {
         [self randomize];
+        self.isHeld = false;
     }
     return self;
 }
@@ -61,6 +62,10 @@
     }
     
     return dieFace;
+}
+
+-(void)toggleHold {
+    self.isHeld = !self.isHeld;
 }
 
 @end

@@ -11,11 +11,11 @@
 
 @interface GameController : NSObject
 
-@property NSMutableArray *heldDice;
-@property NSMutableArray *freeDice;
+@property NSMutableDictionary *diceDict;
 
 -(void)print;
-//-(void)holdDie;
+-(void)holdDie:(int)index;
 -(void)rollDice;
+-(void)releaseDie:(int)index;
 
 @end
