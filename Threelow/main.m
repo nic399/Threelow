@@ -30,11 +30,11 @@ int main(int argc, const char * argv[]) {
         GameController *myGameController = [[GameController alloc] init];
         
         while (gameOn) {
+            [myGameController print];
             userInput = [myInputCollector inputForPrompt:menuPrompt];
             NSArray *arrayWithInputWords = [userInput componentsSeparatedByCharactersInSet:nonalphanumericSet];
             userCommand = [[commands valueForKey:[arrayWithInputWords firstObject]] intValue];
             NSLog(@"Input: %@\nCommand #: %i - %@", userInput, userCommand, [arrayWithInputWords firstObject]);
-            
             
             
             
@@ -54,7 +54,6 @@ int main(int argc, const char * argv[]) {
                         break;
                     }
                     userInput = arrayWithInputWords[1];
-                    NSLog(@"attempting to hold die #%@ array count is %lu",userInput, (unsigned long)[arrayWithInputWords count]);
                     [myGameController holdDie:[userInput intValue]];
                     break;
                 }
@@ -65,18 +64,17 @@ int main(int argc, const char * argv[]) {
                         break;
                     }
                     userInput = arrayWithInputWords[1];
-                    NSLog(@"attempting to unhold die #%@ array count is %lu",userInput, (unsigned long)[arrayWithInputWords count]);
                     [myGameController releaseDie:[userInput intValue]];
                     break;
                 }
                     
-                     case 4: { // reset all held dice
-                         for (int i = 1; i < 6; i++) {
-                             [myGameController releaseDie:i];
-                         }
-                     break;
-                     }
-                     /*
+                case 4: { // reset all held dice
+                    for (int i = 1; i < 6; i++) {
+                        [myGameController releaseDie:i];
+                    }
+                    break;
+                }
+                    /*
                      case 5: { // start a new game
                      <#statements#>
                      break;
@@ -96,8 +94,7 @@ int main(int argc, const char * argv[]) {
             
             
             
-           
-            [myGameController print];
+            
             
         }
         
