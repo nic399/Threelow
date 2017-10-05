@@ -69,12 +69,14 @@ int main(int argc, const char * argv[]) {
                     [myGameController releaseDie:[userInput intValue]];
                     break;
                 }
-                    /*
+                    
                      case 4: { // reset all held dice
-                     
+                         for (int i = 1; i < 6; i++) {
+                             [myGameController releaseDie:i];
+                         }
                      break;
                      }
-                     
+                     /*
                      case 5: { // start a new game
                      <#statements#>
                      break;
