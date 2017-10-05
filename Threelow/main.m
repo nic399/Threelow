@@ -7,8 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Dice.h"
-#import "general_defines.h"
 #import "InputCollector.h"
 #import "GameController.h"
 
@@ -42,14 +40,15 @@ int main(int argc, const char * argv[]) {
             
             
             
-            /*
+            
              switch (userCommand) {
              
              case 1: { //roll dice
-             <#statements#>
+                 NSLog(@"Rolling...\n\n\n");
+                 [myGameController rollDice];
              break;
              }
-             
+             /*
              case 2: { // hold dice
              <#statements#>
              break;
@@ -69,7 +68,7 @@ int main(int argc, const char * argv[]) {
              <#statements#>
              break;
              }
-             
+             */
              //                case <#constant#>: {
              //                    <#statements#>
              //                    break;
@@ -80,7 +79,7 @@ int main(int argc, const char * argv[]) {
              }
              
              
-             */
+            
             
             
             

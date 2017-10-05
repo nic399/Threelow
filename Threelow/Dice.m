@@ -22,7 +22,7 @@
     self.value = arc4random_uniform(6)+1;
 }
 
--(void)printDieFace {
+-(NSString*)getDieFace {
     NSString* dieFace;
     
     switch (self.value) {
@@ -60,7 +60,7 @@
             break;
     }
     
-    NSLog(@"%@", dieFace);
+    return dieFace;
 }
 
 @end

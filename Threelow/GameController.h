@@ -14,6 +14,8 @@
 @property NSMutableArray *heldDice;
 @property NSMutableArray *freeDice;
 
+-(void)print;
 //-(void)holdDie;
+-(void)rollDice;
 
 @end

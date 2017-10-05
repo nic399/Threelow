@@ -15,6 +15,6 @@
 
 -(instancetype)init;
 -(void)randomize;
--(void)printDieFace;
+-(NSString*)getDieFace;
 
 @end
