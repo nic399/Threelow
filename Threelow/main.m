@@ -53,13 +53,20 @@ int main(int argc, const char * argv[]) {
                         NSLog(@"Error: No die selected to hold");
                         break;
                     }
-                    userInput = [commands valueForKey:arrayWithInputWords[1]];
+                    userInput = arrayWithInputWords[1];
+                    NSLog(@"attempting to hold die #%@ array count is %lu",userInput, (unsigned long)[arrayWithInputWords count]);
                     [myGameController holdDie:[userInput intValue]];
                     break;
                 }
                     
                 case 3: { // unhold dice
-                    ;
+                    if ([arrayWithInputWords count] < 2) {
+                        NSLog(@"Error: No die selected to unhold");
+                        break;
+                    }
+                    userInput = arrayWithInputWords[1];
+                    NSLog(@"attempting to unhold die #%@ array count is %lu",userInput, (unsigned long)[arrayWithInputWords count]);
+                    [myGameController releaseDie:[userInput intValue]];
                     break;
                 }
                     /*

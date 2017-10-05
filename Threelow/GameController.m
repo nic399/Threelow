@@ -26,11 +26,15 @@
 }
 
 -(void)print {
-    int i = 1;
-    for (id thisOne in self.diceDict) {
-        Dice *thisDie = [self.diceDict objectForKey:thisOne];
-        NSLog(@"Die %i:  %@ ", i, thisDie.getDieFace);
-        i++;
+    for (int i = 1; i < 6; i++) {
+        Dice *thisDie = [self.diceDict objectForKey:[NSString stringWithFormat:@"%i", i]];
+        NSLog(@"key is %i", i);
+        if (thisDie.isHeld) {
+            NSLog(@"Die %i: [%@]", i, thisDie.getDieFace);
+        }
+        else {
+            NSLog(@"Die %i:  %@ ", i, thisDie.getDieFace);
+        }
     }
 }
 
@@ -42,6 +46,7 @@
 }
 
 -(void)holdDie:(int)index {
+    NSLog(@"Hold die called on #%i", index);
     Dice *selectedDie = [self.diceDict objectForKey:[NSString stringWithFormat:@"%i",index]];
     if (!selectedDie.isHeld) {
         [selectedDie toggleHold];

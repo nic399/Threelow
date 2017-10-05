@@ -20,7 +20,9 @@
 }
 
 -(void)randomize {
-    self.value = arc4random_uniform(6)+1;
+    if (!self.isHeld) {
+        self.value = arc4random_uniform(6)+1;
+    }
 }
 
 -(NSString*)getDieFace {
