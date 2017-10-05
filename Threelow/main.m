@@ -43,7 +43,6 @@ int main(int argc, const char * argv[]) {
             userCommand = [[commands valueForKey:[arrayWithInputWords firstObject]] intValue];
             
             switch (userCommand) {
-                    
                 case 1: { //roll dice
                     [myGameController rollDice];
                     break;
@@ -85,21 +84,11 @@ int main(int argc, const char * argv[]) {
                     [myGameController cheat];
                     break;
                 }
-
+                    
                 default:
                     break;
             }
-            
-            
-            
-            
-            
-            
-            
-            
         }
-        
-        
     }
     return 0;
 }

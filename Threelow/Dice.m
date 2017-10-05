@@ -62,7 +62,6 @@
         default:
             break;
     }
-    
     return dieFace;
 }
 
